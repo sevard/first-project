@@ -1,0 +1,19 @@
+# Git cheet-sheet
+# Creating this file for future referrence to make it easier to memorize
+
+
+echo "string" | git hash-object --stdin -w ## create a hash object in git repo
+
+git cat-file -p <hash> ## read the content of a git object
+git cat-file -t <hash> ## read the type of a git object
+git cat-file -s <hash> ## read the size of a git object
+
+# permission - 100644 <- Regular non-exec file
+# format in temp-tree.txt
+permission blob <hash>	<filename>
+
+cat temp-tree.txt | git mktree ## create a tree object in Git repo 
+
+git read-tree <hash> ## copy tree object from repo to staging aread (index)
+
+git checkout-index -a ## copy all the files from stage into working directory
